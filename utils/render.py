@@ -132,6 +132,7 @@ def crender_colors(vertices, triangles, colors, h, w, c=3, BG=None):
     # to C order
     vertices = vertices.astype(np.float32).copy(order='C')
     triangles = triangles.astype(np.int32).copy(order='C')
+    # colors = np.ones_like(colors).astype(np.float32).copy(order='C') * np.array([0.5, 0, 0.5])
     colors = colors.astype(np.float32).copy(order='C')
 
     mesh_core_cython.render_colors_core(

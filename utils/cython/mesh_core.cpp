@@ -165,6 +165,7 @@ void _render_colors_core(
 
     for(i = 0; i < ntri; i++)
     {
+
         tri_p0_ind = triangles[3*i];
         tri_p1_ind = triangles[3*i + 1];
         tri_p2_ind = triangles[3*i + 2];
@@ -178,6 +179,7 @@ void _render_colors_core(
 
         y_min = max((int)ceil(min(p0.y, min(p1.y, p2.y))), 0);
         y_max = min((int)floor(max(p0.y, max(p1.y, p2.y))), h - 1);
+
 
         if(x_max < x_min || y_max < y_min)
         {
@@ -196,6 +198,7 @@ void _render_colors_core(
 
                     if((p_depth > depth_buffer[y*w + x]))
                     {
+
                         for(k = 0; k < c; k++) // c
                         {
                             p0_color = colors[c*tri_p0_ind + k];
@@ -203,7 +206,7 @@ void _render_colors_core(
                             p2_color = colors[c*tri_p2_ind + k];
 
                             p_color = weight[0]*p0_color + weight[1]*p1_color + weight[2]*p2_color;
-                            image[y*w*c + x*c + k] = p_color;
+                            image[y*w*c + x*c + k] = 0.5 * image[y*w*c + x*c + k] + 0.5 * p_color;
                         }
 
                         depth_buffer[y*w + x] = p_depth;

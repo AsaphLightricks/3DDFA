@@ -17,7 +17,7 @@ cfg = {
     'intensity_ambient': 0.3,
     'color_ambient': (1, 1, 1),
     'intensity_directional': 0.6,
-    'color_directional': (1, 1, 1),
+    'color_directional': (0, 1, 1),
     'intensity_specular': 0.1,
     'specular_exp': 5,
     'light_pos': (0, 0, 5),
@@ -37,7 +37,7 @@ def obama_demo():
         os.mkdir(wd)
 
     app = RenderPipeline(**cfg)
-    img_fps = sorted(glob('obama/*.jpg'))
+    img_fps = sorted(glob('obama2/*.jpg'))
     triangles = sio.loadmat('tri_refine.mat')['tri']  # mx3
     triangles = _to_ctype(triangles).astype(np.int32)  # for type compatible
 

@@ -26,7 +26,7 @@ STD_SIZE = 120
 def main(args):
     # 0. open video
     # vc = cv2.VideoCapture(str(args.video) if len(args.video) == 1 else args.video)
-    vc = cv2.VideoCapture(args.video if int(args.video) != 0 else 0)
+    vc = cv2.VideoCapture(args.video if args.video != '0' else 0)
 
     # 1. load pre-tained model
     checkpoint_fp = 'models/phase1_wpdc_vdc.pth.tar'
